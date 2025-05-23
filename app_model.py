@@ -1,8 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request#, jsonify
 import os
 import pickle
-from sklearn.model_selection import cross_val_score
-import pandas as pd
+# from sklearn.model_selection import cross_val_score
+# import pandas as pd
 
 
 os.chdir(os.path.dirname(__file__))
@@ -30,4 +30,5 @@ def predict():
         prediction = model.predict([[int(tv), int(radio), int(newspaper)]])
         return "The prediction of sales investing that amount of money in TV, radio and newspaper is: " + str(round(prediction[0],2)) + 'k €'
 
-app.run()
+if __name__=='__main__':
+    app.run()
